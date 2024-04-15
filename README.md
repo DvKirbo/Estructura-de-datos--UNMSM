@@ -1,2 +1,2 @@
-**Data Estrcuture**
+**Data Estructure**
 Hola
