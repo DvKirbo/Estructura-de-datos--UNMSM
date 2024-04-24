@@ -20,7 +20,7 @@ Stack<String> pila = Stack();
 String postfija = '';
 for(int i = 0; i < expresion.length; i++){
   String caracteres = expresion[i];
-  if(caracteres.contains(RegExp(r'[a-zA-Z0-9]'))){
+  if(caracteres.contains(RegExp(r'[0-9]'))){
     postfija += caracteres;
   }
   else if(caracteres == '('){
@@ -32,6 +32,10 @@ for(int i = 0; i < expresion.length; i++){
     }
     pila.pop();
   }
+  else if(caracteres.contains(RegExp(r'[a-zA-z]'))){
+    String error = "expresion ilegal";
+    return error;
+    }
   else{
     while(pila.isNotEmpty && preferencia(caracteres) <= preferencia(pila.top())){
       postfija += pila.pop();
@@ -78,9 +82,14 @@ double Comprobar(String postfija){
 }
 
 void main(){
-  String infija = '3*4/(3+1)';
+  String infija = 'wasa';
   String postfija = infapost(infija);
   print(postfija);
-  double resultado = Comprobar(postfija);
-  print(resultado);
+  if(postfija != "expresion ilegal"){
+    double resultado = Comprobar(postfija);
+    print(resultado);
+  }
+  else{
+    print("expresion ilegal");
+  }
 }
