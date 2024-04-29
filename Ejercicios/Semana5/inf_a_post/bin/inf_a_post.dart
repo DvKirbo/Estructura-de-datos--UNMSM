@@ -33,8 +33,7 @@ for(int i = 0; i < expresion.length; i++){
     pila.pop();
   }
   else if(caracteres.contains(RegExp(r'[a-zA-z]'))){
-    String error = "expresion ilegal";
-    return error;
+    continue;
     }
   else{
     while(pila.isNotEmpty && preferencia(caracteres) <= preferencia(pila.top())){
@@ -49,7 +48,7 @@ for(int i = 0; i < expresion.length; i++){
   return postfija;
 }
 
-double Comprobar(String postfija){
+double comprobar(String postfija){
   Stack<double> pila = Stack();
   for(int i = 0; i < postfija.length; i++){
     String caracter = postfija[i];
@@ -82,11 +81,11 @@ double Comprobar(String postfija){
 }
 
 void main(){
-  String infija = 'wasa';
+  String infija = '4*(5+6-(8/2^3)-7)-1';
   String postfija = infapost(infija);
   print(postfija);
   if(postfija != "expresion ilegal"){
-    double resultado = Comprobar(postfija);
+    double resultado = comprobar(postfija);
     print(resultado);
   }
   else{
