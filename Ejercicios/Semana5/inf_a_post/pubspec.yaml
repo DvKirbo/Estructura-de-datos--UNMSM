@@ -8,8 +8,14 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
+  dartx: ^1.2.0
+  equations: ^5.0.2
+  infix_expression_parser: ^1.0.2
+  petitparser: ^5.0.0
   stack: ^0.2.2
   # path: ^1.8.0
 
 dev_dependencies:
   lints: ^3.0.0
+  queue: ^3.1.0+2
+  string_validator: ^0.3.0
